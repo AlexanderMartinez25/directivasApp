@@ -12,17 +12,15 @@ export class ErrMsgDirective implements OnInit, OnChanges {
 
   // al recibir la propiedad del padre seteamos de una el color del elemento
   @Input() set color(valor: string) {
-    this.htmlElement.nativeElement.style.color = valor;
     this._color = valor;
+    this.setColor();
   }
 
 
   // @Input() mensaje: string = 'Este campo es requerido';
-
   @Input() set mensaje(valor: string) {
-    console.log(valor);
-    this.htmlElement.nativeElement.innerText = valor;
-    this._mensaje = valor
+    this._mensaje = valor;
+    this.setMensaje();
   }
 
   constructor(private el: ElementRef<HTMLElement>) {
@@ -34,21 +32,21 @@ export class ErrMsgDirective implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    /*  console.log(this.color, this.mensaje);
-        this.setColor();
-        this.setMensaje(); */
+    this.setEstilo();
+    this.setColor();
+    this.setMensaje();
   }
 
   setEstilo(): void {
     this.htmlElement.nativeElement.classList.add('form-text');
   }
 
-  // setColor(): void {
-  //   this.htmlElement.nativeElement.style.color = this.color;
-  // }
+  setColor(): void {
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
 
-  // setMensaje(): void {
-  //   this.htmlElement.nativeElement.innerText = this.mensaje;
-  // }
+  setMensaje(): void {
+    this.htmlElement.nativeElement.innerText = this._mensaje;
+  }
 
 }
