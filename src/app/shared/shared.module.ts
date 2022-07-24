@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ErrMsgDirective } from './directives/err-msg.directive';
+import { CustomIfDirective } from './directives/custom-if.directive';
 
 
 @NgModule({
   // es parte de este modulo
   declarations: [
-    ErrMsgDirective
+    ErrMsgDirective,
+    CustomIfDirective
   ],
   // se exporta para usarse en otros modulos
   exports: [
-    ErrMsgDirective
+    ErrMsgDirective,
+    CustomIfDirective
   ]
 })
 export class SharedModule { }
