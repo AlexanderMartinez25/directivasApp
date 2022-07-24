@@ -16,12 +16,20 @@ export class ErrMsgDirective implements OnInit, OnChanges {
     this.setColor();
   }
 
-
-  // @Input() mensaje: string = 'Este campo es requerido';
   @Input() set mensaje(valor: string) {
     this._mensaje = valor;
     this.setMensaje();
   }
+
+  @Input() set valido(valor: boolean) {
+    if (valor) {
+      this.htmlElement.nativeElement.classList.add('d-none');
+    } else {
+      this.htmlElement.nativeElement.classList.remove('d-none');
+
+    }
+  }
+
 
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;

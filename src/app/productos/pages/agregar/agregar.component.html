@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-auto">
-            <span error-msg [color]="color" [mensaje]="texto1" *ngIf="tieneError('nombre')">
+            <span error-msg [color]="color" [mensaje]="texto1" [valido]="!tieneError('nombre')">
             </span>
         </div>
     </div>
